@@ -1,0 +1,16 @@
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\bin\Debug\net5.0\x-www-form-urlencoded_To_Json.exe
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\bin\Debug\net5.0\x-www-form-urlencoded_To_Json.deps.json
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\bin\Debug\net5.0\x-www-form-urlencoded_To_Json.runtimeconfig.json
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\bin\Debug\net5.0\x-www-form-urlencoded_To_Json.runtimeconfig.dev.json
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\bin\Debug\net5.0\x-www-form-urlencoded_To_Json.dll
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\bin\Debug\net5.0\ref\x-www-form-urlencoded_To_Json.dll
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\bin\Debug\net5.0\x-www-form-urlencoded_To_Json.pdb
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\x-www-form-urlencoded_To_Json.csproj.AssemblyReference.cache
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\x-www-form-urlencoded_To_Json.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\x-www-form-urlencoded_To_Json.AssemblyInfoInputs.cache
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\x-www-form-urlencoded_To_Json.AssemblyInfo.cs
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\x-www-form-urlencoded_To_Json.csproj.CoreCompileInputs.cache
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\x-www-form-urlencoded_To_Json.dll
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\ref\x-www-form-urlencoded_To_Json.dll
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\x-www-form-urlencoded_To_Json.pdb
+D:\C#_Projects\x-www-form-urlencoded_To_Json\x-www-form-urlencoded_To_Json\obj\Debug\net5.0\x-www-form-urlencoded_To_Json.genruntimeconfig.cache
