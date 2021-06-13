@@ -59,25 +59,55 @@ namespace x_www_form_urlencoded_To_Json
                 joinedObjects.Add(joinedObj);
             }
 
-            foreach(JsonObject obj in joinedObjects)
+            foreach (JsonObject obj in joinedObjects.ToList())
             {
-                obj.Properties = obj.Properties.Where(o => !string.IsNullOrEmpty(o.PropertyName)).ToList();
-                Console.WriteLine(obj.ParentObjectName + " --> " + obj.ObjectName);
-                //foreach(JsonObject cobj in obj.ChildObjects)
-                //    Console.WriteLine("child Obj: " + cobj.ChildObjects);
-                foreach(JsonProperty prop in obj.Properties)
-                    Console.WriteLine("prop: " + prop.PropertyName + " : " + prop.Value);
+                List<JsonObject> childs = joinedObjects.Where(o => obj.ObjectName.Equals(o.ParentObjectName)).ToList();
+                childs.ForEach(o => 
+                {
+                    obj.ChildObjects.Add(o);
+                    joinedObjects.Remove(o);
+                });
             }
+            StringBuilder json = BuildJsonFromObjectList(joinedObjects);
+            json.Insert(0, '{');
+            json.Append('}');
 
-            StringBuilder json = new("{");
             //for(int i = 0; i < jsonObjects.Count; i++)
             //{
             //    json.Append($"\"{jsonObjects[i].PropertyName}\":\"{jsonObjects[i].Value}\"");
             //    if (jsonObjects.Count - i != 1)
             //        json.Append(',');
             //}
-            json.Append('}');
             return json.ToString();
+        }
+
+        private static StringBuilder BuildJsonFromObjectList(List<JsonObject> objects)
+        {
+            StringBuilder json = new();
+            for (int i = 0; i < objects.Count; i++)
+            {
+                objects[i].Properties = objects[i].Properties.Where(o => !string.IsNullOrEmpty(o.PropertyName)).ToList();
+                json.Append($"\"{objects[i].ObjectName}\":{{");
+                for (int j = 0; j < objects[i].Properties.Count; j++)
+                {
+                    json.Append($"\"{objects[i].Properties[j].PropertyName}\":\"{objects[i].Properties[j].Value}\"");
+                    if (objects[i].Properties.Count - j != 1)
+                        json.Append(',');
+                }
+
+#error Add every child objects recursuvly
+
+                json.Append('}');
+                if (objects.Count - i != 1)
+                    json.Append(',');
+            }
+
+            return json;
+        }
+
+        private static void AppendJsonObjectToJsonString(StringBuilder json)
+        {
+
         }
 
         private static List<JsonObject> BuildObject(string rawStringRow)
