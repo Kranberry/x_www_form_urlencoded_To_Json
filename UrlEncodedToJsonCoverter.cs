@@ -62,7 +62,7 @@ namespace x_www_form_urlencoded_To_Json
             foreach(JsonObject obj in joinedObjects)
             {
                 obj.Properties = obj.Properties.Where(o => !string.IsNullOrEmpty(o.PropertyName)).ToList();
-                Console.WriteLine(obj.ObjectName);
+                Console.WriteLine(obj.ParentObjectName + " --> " + obj.ObjectName);
                 //foreach(JsonObject cobj in obj.ChildObjects)
                 //    Console.WriteLine("child Obj: " + cobj.ChildObjects);
                 foreach(JsonProperty prop in obj.Properties)
@@ -112,14 +112,7 @@ namespace x_www_form_urlencoded_To_Json
                 }
                 key = key.Substring(shortKey.Length + subCount);
                 if(shortKey[^1].Equals(']'))
-                {
-                    shortKey = shortKey.Remove(shortKey[^1] - 1);
-                }
-
-
-                if(shortKey == "merges")
-                    Console.WriteLine();
-
+                    shortKey = shortKey.Remove(shortKey.Length - 1);
 
                 if (objectCount != i)
                 {
