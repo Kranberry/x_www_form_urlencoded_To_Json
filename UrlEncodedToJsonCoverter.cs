@@ -39,24 +39,28 @@ namespace x_www_form_urlencoded_To_Json
             List<JsonObject> joinedObjects = new();
             foreach(IGrouping<string, JsonObject> jsons in grouping)
             {
-                JsonObject joinedObj = new()
-                {
-                    ObjectName = jsons.ElementAt(0).ObjectName,
-                    ChildObjects = new(),
-                    Properties = new(),
-                    ParentObjectName = jsons.ElementAt(0).ParentObjectName
-                };
+                IEnumerable<IGrouping<string, JsonObject>> groups = jsons.GroupBy(x => x.ObjectName);
 
-                foreach(JsonObject obj in jsons)
+                foreach (IGrouping<string, JsonObject> group in groups)
                 {
-                    foreach (JsonProperty prop in obj.Properties)
-                        joinedObj.Properties.Add(prop);
+                    JsonObject joinedObj = new()
+                    {
+                        ObjectName = group.ElementAt(0).ObjectName,
+                        ChildObjects = new(),
+                        Properties = new(),
+                        ParentObjectName = group.ElementAt(0).ParentObjectName
+                    };
+                    foreach (JsonObject obj in group)
+                    {
+                        foreach (JsonProperty prop in obj.Properties)
+                            joinedObj.Properties.Add(prop);
 
-                    foreach (JsonObject jobj in obj.ChildObjects)
-                        joinedObj.ChildObjects.Add(jobj);
+                        foreach (JsonObject jobj in obj.ChildObjects)
+                            joinedObj.ChildObjects.Add(jobj);
+                    }
+
+                    joinedObjects.Add(joinedObj);
                 }
-
-                joinedObjects.Add(joinedObj);
             }
 
             foreach (JsonObject obj in joinedObjects.ToList())
@@ -87,27 +91,27 @@ namespace x_www_form_urlencoded_To_Json
             for (int i = 0; i < objects.Count; i++)
             {
                 objects[i].Properties = objects[i].Properties.Where(o => !string.IsNullOrEmpty(o.PropertyName)).ToList();
-                json.Append($"\"{objects[i].ObjectName}\":{{");
+                if (!objects[i].ObjectName.Equals("Root"))
+                    json.Append($"\"{objects[i].ObjectName}\":{{");
+
                 for (int j = 0; j < objects[i].Properties.Count; j++)
                 {
                     json.Append($"\"{objects[i].Properties[j].PropertyName}\":\"{objects[i].Properties[j].Value}\"");
-                    if (objects[i].Properties.Count - j != 1)
-                        json.Append(',');
+                    if (objects.Count - i != 0)
+                    {
+                        if(objects[i].ChildObjects.Count > 0 || j != objects[i].Properties.Count - 1)
+                            json.Append(',');
+                    }
                 }
 
-#error Add every child objects recursuvly
-
-                json.Append('}');
+                json.Append(BuildJsonFromObjectList(objects[i].ChildObjects).ToString());
+                if (!objects[i].ObjectName.Equals("Root"))
+                    json.Append('}');
                 if (objects.Count - i != 1)
                     json.Append(',');
             }
-
+            
             return json;
-        }
-
-        private static void AppendJsonObjectToJsonString(StringBuilder json)
-        {
-
         }
 
         private static List<JsonObject> BuildObject(string rawStringRow)
@@ -146,6 +150,9 @@ namespace x_www_form_urlencoded_To_Json
 
                 if (objectCount != i)
                 {
+                    // This means that it is an object, and not a property
+                    //if(shortKey == "1")
+                    //    Console.WriteLine();
                     JsonObject jsonObject = new()
                     {
                         ParentObjectName = jsonObjects.Last().ObjectName,
@@ -154,10 +161,10 @@ namespace x_www_form_urlencoded_To_Json
                         Properties = new()
                     };
                     jsonObjects.Add(jsonObject);
-                    // This means that it is an object, and not a property
                 }
                 else
                 {
+                    // This means that it is a property
                     JsonObject parent = jsonObjects.Last();
                     //if(parent.ObjectName == "merges")
                     //    Console.WriteLine();
@@ -167,32 +174,10 @@ namespace x_www_form_urlencoded_To_Json
                         PropertyName = shortKey,
                         Value = propValue
                     });
-                    // This means that it is a property
                 }
             }
 
             return jsonObjects;
-        }
-
-        private static JsonProperty BuildProperties(string rawStringRow)
-        {
-            Regex findParentName = new("");
-
-            string key = FindKey.Match(rawStringRow).Value;
-            if(key.Contains('[') && key.Contains(']'))
-            {
-                int lastIndex = key.LastIndexOf('[') + 1;
-                key = key.Substring(lastIndex, key.LastIndexOf(']') - lastIndex);
-            }
-
-            string value = FindValue.Match(rawStringRow).Value;
-
-            JsonProperty jsonProperty = new()
-            {
-                PropertyName = key,
-                Value = value
-            };
-            return jsonProperty;
         }
     }
 }

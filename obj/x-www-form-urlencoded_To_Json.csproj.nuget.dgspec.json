@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#_Projects\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json.csproj": {}
+    "C:\\Users\\f3bat\\source\\repos\\x-www-form_urlencoded_to_json\\x_www_form_urlencoded_To_Json\\x-www-form-urlencoded_To_Json.csproj": {}
   },
   "projects": {
-    "D:\\C#_Projects\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json.csproj": {
+    "C:\\Users\\f3bat\\source\\repos\\x-www-form_urlencoded_to_json\\x_www_form_urlencoded_To_Json\\x-www-form-urlencoded_To_Json.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#_Projects\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json.csproj",
+        "projectUniqueName": "C:\\Users\\f3bat\\source\\repos\\x-www-form_urlencoded_to_json\\x_www_form_urlencoded_To_Json\\x-www-form-urlencoded_To_Json.csproj",
         "projectName": "x-www-form-urlencoded_To_Json",
-        "projectPath": "D:\\C#_Projects\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json.csproj",
-        "packagesPath": "C:\\Users\\Jesus Kvistus\\.nuget\\packages\\",
-        "outputPath": "D:\\C#_Projects\\x-www-form-urlencoded_To_Json\\x-www-form-urlencoded_To_Json\\obj\\",
+        "projectPath": "C:\\Users\\f3bat\\source\\repos\\x-www-form_urlencoded_to_json\\x_www_form_urlencoded_To_Json\\x-www-form-urlencoded_To_Json.csproj",
+        "packagesPath": "C:\\Users\\f3bat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\f3bat\\source\\repos\\x-www-form_urlencoded_to_json\\x_www_form_urlencoded_To_Json\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jesus Kvistus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\f3bat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
